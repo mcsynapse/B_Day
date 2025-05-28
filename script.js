@@ -1,17 +1,23 @@
-// Confetti animation on page load
+// Wait for the full page content (DOM + media) to load
 window.onload = () => {
-  confetti({
-    particleCount: 200,
-    spread: 100,
-    origin: { y: 0.6 },
-    colors: ['#FF7F50', '#FFFACD', '#D8BFD8']
+  const music = document.getElementById('bg-music');
+
+  // Wait until the audio can play through without buffering
+  music.addEventListener('canplaythrough', () => {
+    music.volume = 1.0; // Full volume
+    music.play();
+
+    // Confetti animation after music is ready
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 },
+      colors: ['#FF7F50', '#FFFACD', '#D8BFD8']
+    });
   });
 
-  // Auto start music with fade in
-  const music = document.getElementById('bg-music');
-  music.volume = 100;
-  music.play();
-  
+  // Force the browser to start loading the audio
+  music.load();
 };
 
 confetti({
