@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap');
 
 :root {
-  --primary: #dcbfff;
-  --accent: #c8e7f0;
+  --coral: #FF7F50;
+  --yellow: #FFFACD;
+  --purple: #D8BFD8;
   --text: #4b3869;
-  --bg: #fff0f6;
-  --soft-pink: #fcd6e5;
+  --bg: #fff5f9;
 }
 
 * {
@@ -16,55 +16,63 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
 }
 
 .container {
-  padding: 3rem 1.5rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
 h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 3rem;
-  color: #a066c9;
+  font-size: 2.5rem;
+  color: var(--coral);
   margin-bottom: 1rem;
   animation: fadeInDown 2s ease forwards;
 }
 
 .animated-text {
-  font-size: 1.2rem;
-  max-width: 700px;
+  font-size: 1rem;
   margin: 0 auto 2rem;
+  color: var(--text);
   animation: fadeIn 3s ease-in-out forwards;
-  color: #6e4a7e;
+  max-width: 85%;
 }
 
 .image-gallery {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 2rem auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .image-gallery img {
-  width: 250px;
+  width: 85%;
+  max-width: 300px;
   border-radius: 1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 
 .image-gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+
+.heart {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  color: #fc9bc0;
+  animation: pulse 2s infinite;
 }
 
 footer {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   font-style: italic;
-  color: #8d58b2;
+  font-size: 0.95rem;
+  color: var(--coral);
 }
 
 /* Animations */
@@ -77,3 +85,9 @@ footer {
   from { opacity: 0; transform: translateY(-30px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
