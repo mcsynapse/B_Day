@@ -3,34 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday, My Happiness</title>
+  <title>Happy Birthday Rimila 🎂</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio id="bg-music" loop>
-    <source src="love.mp3" type="audio/mp3" />
-  </audio>
+  <audio id="birthdayAudio" src="song.mp3" autoplay></audio>
 
-  <div class="container">
-    <div class="birthday-message">
-      <h1>Happy Birthday, Rimila 💜</h1>
-      <p class="animated-text">You’re my sunshine, my calm, my reason to smile. Here’s to your beautiful soul 💖</p>
+  <div class="confetti"></div>
+  <div class="balloons"></div>
+
+  <div class="flipbook">
+
+    <!-- Page 1: Cover with animated cake -->
+    <div class="page">
+      <div class="cake-container">
+        <div class="cake">
+          <div class="candle"></div>
+          <div class="layer1"></div>
+          <div class="layer2"></div>
+          <div class="layer3"></div>
+        </div>
+        <h1 class="title">Happy Birthday Rimila</h1>
+        <p class="hint">Click to go to next page</p>
+      </div>
     </div>
 
-    <div class="image-gallery">
-      <img src="img1.jpg" alt="Memory 1"/>
-      <span class="heart">💖</span>
-      <img src="img2.jpg" alt="Memory 2"/>
-      <span class="heart">💖</span>
-      <img src="img3.jpg" alt="Memory 3"/>
+    <!-- Page 2 -->
+    <div class="page">
+      <img src="img1.jpg" alt="Memory 1" class="photo"/>
+      <p class="message">You make everything around you glow 🌟</p>
+      <p class="hint">Click to go to next page</p>
     </div>
 
-    <footer>
-      <p>With love, always — Mayukh 💫</p>
-    </footer>
+    <!-- Page 3 -->
+    <div class="page">
+      <img src="img2.jpg" alt="Memory 2" class="photo"/>
+      <p class="message">Life feels like a melody with you 🎶</p>
+      <p class="hint">Click to go to next page</p>
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page">
+      <img src="img3.jpg" alt="Memory 3" class="photo"/>
+      <p class="message">You're the most beautiful part of my world 💖</p>
+      <p class="hint">Click to go to next page</p>
+    </div>
+
+    <!-- Final Page -->
+    <div class="page">
+      <p class="final-message">With love, always — <strong>Mayukh 💫</strong></p>
+    </div>
+
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
