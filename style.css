@@ -1,93 +1,270 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap');
-
-:root {
-  --coral: #FF7F50;
-  --yellow: #FFFACD;
-  --purple: #D8BFD8;
-  --text: #4b3869;
-  --bg: #fff5f9;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap');
+@font-face {
+  font-family: 'Fontxx'; /* Give your font a name */
+  src: url('fontxx.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Optional: improves performance */
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
+  margin: 0;
+  background: linear-gradient(to bottom right, #f6d1f7, #fff5d7, #ffd6d6);
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.container {
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-h1 {
+.title {
   font-family: 'Great Vibes', cursive;
-  font-size: 2.5rem;
-  color: var(--coral);
+  font-weight: bold;
+  position: relative;
+  font-size: 2.5rem;                                      
+  color: #FF7F50;
   margin-bottom: 1rem;
   animation: fadeInDown 2s ease forwards;
 }
 
-.animated-text {
-  font-size: 1rem;
-  margin: 0 auto 2rem;
-  color: var(--text);
-  animation: fadeIn 3s ease-in-out forwards;
-  max-width: 85%;
+
+.flipbook {
+  width: 320px;
+  height: 480px;
+  position: relative;
+  perspective: 1500px;
+  align-items: center;
 }
 
-.image-gallery {
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 248, 243, 1);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  padding: 20px;
+  text-align: center;
+  backface-visibility: hidden;
+  transform-origin: left;
+  transition: transform 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.page img.photo {
+  width: 100%;
+  max-height: 230px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.message {
+  font-size: 1.5em;
+  font-family: 'Fontxx';
+  color: #f86834;
+}
+
+.hint {
+  font-size: 0.85em;
+  color: #999;
+  font-style: italic;
+  margin-top: auto;
+}
+
+.final-message {
+  font-size: 2em;
+  font-family: 'Great Vibes', cursive;
+  color: #ff4081;
+}
+
+.cake-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
-.image-gallery img {
-  width: 85%;
-  max-width: 300px;
-  border-radius: 1rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+.cake {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  margin-bottom: 85px;
+  margin-left: -110px;
 }
 
-.image-gallery img:hover {
-  transform: scale(1.03);
+.layer1,
+.layer2,
+.layer3 {
+  height: 70px;
+  width: 210px;
+  position: relative;
+  margin: auto;
+  background-repeat: repeat;
+  background-size: 100% 100%, 60px 100px;
+  background-position: 28px 0;
+  background-image: linear-gradient(
+      transparent 50px,
+      #e3a953 50px,
+      #e3a953 60px,
+      transparent 60px
+    ),
+    radial-gradient(circle at 30px 5px, #713e16 30px, #eac284 31px);
 }
 
-.heart {
-  font-size: 1.8rem;
-  margin: 0.5rem 0;
-  color: #fc9bc0;
-  animation: pulse 2s infinite;
+.layer2 {
+  transform: scale(0.85);
+  top: 72px;
+  animation: rise-1 1.5s forwards;
+}
+@keyframes rise-1 {
+  100% {
+    top: 7px;
+  }
+}
+.layer1 {
+  transform: scale(0.7);
+  top: 144px;
+  animation: rise-2 2s forwards;
+}
+@keyframes rise-2 {
+  100% {
+    top: 26px;
+  }
 }
 
-footer {
-  margin-top: 2.5rem;
-  font-style: italic;
-  font-size: 0.95rem;
-  color: var(--coral);
+.candle {
+  background: repeating-linear-gradient(
+    45deg,
+    #fd3018 0,
+    #fd3018 5px,
+    #ffa89e 5px,
+    #ffa89e 10px
+  );
+  height: 45px;
+  width: 15px;
+  position: absolute;
+  margin: auto;
+  left: 95px;
+  right: 0;
+  bottom: 0;
+  animation: rise-3 1s 2s forwards;
+}
+@keyframes rise-3 {
+  100% {
+    bottom: 80px;
+  }
+}
+.candle:after {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: #ffee54;
+  border-radius: 0 50% 50% 50%;
+  transform: scale(0) rotate(45deg);
+  bottom: 50px;
+  left: -0.5px;
+  animation: flame 1.5s 3s forwards;
+}
+@keyframes flame {
+  100% {
+    transform: scale(1) rotate(45deg);
+  }
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Confetti and Balloons */
+.confetti, .balloons {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
 }
 
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+.confetti {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.3); }
+.balloons {
+  bottom: -200px;
+  left: 0;
+  width: 100%;
 }
 
+.balloon {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background-color: pink;
+  border-radius: 50%;
+  animation: rise 8s linear infinite;
+}
+
+.balloon {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background-color: pink;
+  border-radius: 50%;
+  animation: rise 8s linear infinite;
+}
+
+/* Curled thread with realistic physics */
+.balloon::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1.5px;
+  height: 50px;
+  background: linear-gradient(to bottom, #aaa, #888);
+  transform-origin: top center;
+  transform: translateX(-50%) perspective(100px) rotateX(15deg);
+  animation: curl 4s ease-in-out infinite alternate;
+}
+
+/* Realistic curl animation */
+@keyframes curl {
+  0% {
+    transform: translateX(-50%) perspective(100px) rotateX(15deg) 
+               scaleY(1) rotateZ(-5deg);
+  }
+  25% {
+    transform: translateX(-50%) perspective(100px) rotateX(20deg) 
+               scaleY(0.9) rotateZ(0deg);
+  }
+  50% {
+    transform: translateX(-50%) perspective(100px) rotateX(15deg) 
+               scaleY(0.85) rotateZ(5deg);
+  }
+  75% {
+    transform: translateX(-50%) perspective(100px) rotateX(10deg) 
+               scaleY(0.95) rotateZ(-2deg);
+  }
+  100% {
+    transform: translateX(-50%) perspective(100px) rotateX(15deg) 
+               scaleY(1) rotateZ(-5deg);
+  }
+}
+
+/* Rising animation */
+@keyframes rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
